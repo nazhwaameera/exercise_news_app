@@ -5,6 +5,8 @@ import 'package:exercise_news_app/presentation/widgets/card_news.dart';
 import 'package:exercise_news_app/presentation/widgets/favorite_news_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'webview_page.dart';
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
@@ -52,7 +54,14 @@ class _HomePageState extends ConsumerState<HomePage> {
                     return ListView(
                         children: List.generate(listNews.length, (index) {
                           return GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => WebViewScreen(url: listNews[index].newsUrl),
+                                ),
+                              );
+                            },
                             child: CardNews(news: listNews[index]),
                           );
                         })

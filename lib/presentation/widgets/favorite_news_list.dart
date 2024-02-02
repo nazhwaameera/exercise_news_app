@@ -1,4 +1,5 @@
 import 'package:exercise_news_app/domain/entities/news.dart';
+import 'package:exercise_news_app/presentation/pages/webview_page.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteNewsList extends StatelessWidget {
@@ -27,7 +28,14 @@ class FavoriteNewsList extends StatelessWidget {
             color: Theme.of(context).colorScheme.onBackground,
           ),
         ),
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WebViewScreen(url: news[index].newsUrl),
+            ),
+          );
+        },
       ),
     );
   }

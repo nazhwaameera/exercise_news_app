@@ -7,7 +7,7 @@ abstract class NewsDataSource{
 class RemoteNewsDataSource implements NewsDataSource {
   @override
   Future<String> getNewsData() async{
-    const apiKey = '4b397c0b925c48649a61b00c6ab69622';
+    const apiKey = '383663fb7fb743f490f785addecc7869';
     final response = await http.get(Uri.parse(
         'https://newsapi.org/v2/everything?q=keyword&apiKey=$apiKey'));
 
